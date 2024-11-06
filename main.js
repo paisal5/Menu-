@@ -34,9 +34,9 @@ export async function ambilDaftarBarang() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      tanggalMasuk: dok.data(). tanggalMasuk,
-      namaBarang: dok.data(). namaBarang,
-      jumlahBarang: dok.data(). jumlahBarang
+      tanggalpemasukan: dok.data(). tanggalpemasukan,
+      namakuliner: dok.data(). namakuliner,
+      jumlahstokkuliner: dok.data(). jumlahstokkuliner
     });
   });
 
