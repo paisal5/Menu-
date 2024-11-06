@@ -11,3 +11,5 @@ import {
   orderBy,
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// For Firebase JS SDK v7.20.0 and later, measuremenId is
