@@ -22,22 +22,22 @@
   <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">tombol </button>
       <ul class="dropdown-menu dropdown-menu-dark">
-        <li><a class="dropdown-item active" href="index.html">lihat daftar jenis barang </a></a></li>
+        <li><a class="dropdown-item active" href="index.html">lihat daftar jenis kuliner </a></a></li>
     </div>
   
-  <h1>Ubah Data Barang </h1>
+  <h1>Ubah bahan baku </h1>
 
   <form class="mb-3">
     <div class="mb-3">
-      <label class="form-label">tanggal Masuk</label>
+      <label class="form-label">tanggal pemasukan</label>
       <input type="date" class="form-control" id="input-tanggal Masuk">
     </div>
     <div class="mb-3">
-      <label class="form-label">nama Barang</label>
+      <label class="form-label">nama kuliner</label>
       <input type="text" class="form-control" id="input-nama Barang">
     </div>
      <div class="mb-3">
-      <label class="form-label">jumlah Barang</label>
+      <label class="form-label">jumlah stokkuliner</label>
       <input type="text" class="form-control" id="input-jumlah Barang">
     </div>
     
@@ -48,22 +48,22 @@
     import { ambilBarang, ubahBarang } from './main.js';
 
     let tombolUbah = document.getElementById('tombol-ubah');
-    let elementanggalMasuk = document.getElementById('input-tanggal Masuk');
-    let elemennamaBarang = document.getElementById('input-nama Barang');
-    let elemenjumlahBarang = document.getElementById('input-jumlah Barang');
+    let elementanggalpemasukan = document.getElementById('input-tanggal pemasukan');
+    let elemennamakuliner = document.getElementById('input-nama kuliner');
+    let elemenjumlahstokkuliner = document.getElementById('input-jumlah stokkuliner');
 
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
     const daftar = await ambilBarang(docId);
 
-    elementanggalMasuk.value = daftar.tanggalMasuk;
-    elemennamaBarang.value = daftar.namaBarang;
-    elemenjumlahBarang.value = daftar.jumlahBarang
+    elementanggalpemasukan.value = daftar.tanggalpemasukan;
+    elemennamakuliner.value = daftar.namakuliner;
+    elemenjumlahstokkuliner.value = daftar.jumlahstokkuliner
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahBarang(docId, elementanggalMasuk.value, elemennamaBarang.value, elemenjumlahBarang.value );
+      await ubahBarang(docId, elementanggalpemasukan.value, elemennamakuliner.value, elemenjumlahstokkuliner.value );
       window.location.href = 'index.html';
     });
   </script>
