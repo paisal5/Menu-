@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>pkl</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <header>
+        <img src="gambar.jpg" alt="Gambar Header" />
+    </header>
+
+  <body class="m-3">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        tambah
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item active" href="form-pkl.html">tambah data</a></a></li>
+    </div>
+
+    <h1>Bar kasir </h1>
+
+
+
+    <table class="table" id="barang">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">tanggal masuk</th>
+          <th scope="col">nama barang</th>
+          <th scope="col">jumlah barang</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+      <img src="loader.gif" style="width: 1em; display: block" id="loader">
+    </div>
+
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .stack-up {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+    </style>
+
+
+    <script type="module">
+      import { ambilDaftarBarang, ubahBarang, hapusBarang } from './main.js';
+
+      $(document).ready(async function() {
+        let elemenDaftar = $("#barang > tbody");
+        let daftarBarang = await ambilDaftarBarang();
+        let nomor = 1;
+
+        daftarBarang.forEach((data) => {
+          elemenDaftar.append(
+            '<tr>' +
+            '<th>' + nomor + '</th>' +
+            '<td>' + data.tanggalMasuk + '</td>' +
+            '<td>' + data.namaBarang + '</td>' +
+            '<td>' + data.jumlahBarang + '</td>' +
+            '<td class="stack-up">' +
+            ' <a href="#" class="btn btn-warning link-ubah"  data="' +
+            data.id +
+            '">ubah</a> ' +
+            ' <button class="btn btn-danger tombol-hapus" data="' +
+            data.id +
+            '">Hapus</button>' + '</td>' +
+            '</tr>'
+          );
+          nomor = nomor + 1;
+        });
+
+        $('.tombol-hapus').click(async function() {
+          await hapusBarang($(this).attr('data'));
+          location.reload();
+        })
+
+        $('.link-ubah').click(async function() {
+          window.location.replace('ubah-pkl.html?docId=' + $(this).attr('data'));
+        })
+
+        $('#loader').hide();
+
+
+
+      });
+    </script>
+
+    <footer class="py-3 bg-dark-subtle mt-auto">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+
+      </ul>
+      <p class="text-center text-body-secondary">&copy; SMK PLUS INSAN CEMERLANG 2024
+        # PT.KAF GROUP INDONESIA
+        # KAF FRAID CHIKEN </p>
+    </footer>
+
+  </body>
+
+</html>
