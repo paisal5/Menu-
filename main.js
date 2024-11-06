@@ -14,20 +14,21 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBcym1i4oAyM2rFmBU_Ipa0vcC7Pdz0dws",
-  authDomain: "insan-cemerlang-2e18f.firebaseapp.com",
-  projectId: "insan-cemerlang-2e18f",
-  storageBucket: "insan-cemerlang-2e18f.appspot.com",
-  messagingSenderId: "1096016420480",
-  appId: "1:1096016420480:web:87611389fc765e7ddbd065",
-  measurementId: "G-DW23S2DXCR"
+  apiKey: "AIzaSyAwZk_BSxdm6_VJsVPI2Ne8S3RO5pi0-lg",
+  authDomain: "paisal-abret.firebaseapp.com",
+  projectId: "paisal-abret",
+  storageBucket: "paisal-abret.appspot.com",
+  messagingSenderId: "368318578592",
+  appId: "1:368318578592:web:491e88e8b6eee503d72ec5",
+  measurementId: "G-7Q534CCZNV"
 };
+// Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarBarang() {
   const refDokumen = collection(db, "pkl");
-  const kueri = query(refDokumen, orderBy("namaBarang"));
+  const kueri = query(refDokumen, orderBy("namakuliner"));
   const cuplikanKueri = await getDocs(kueri);
 
   let hasil = [];
@@ -44,12 +45,12 @@ export async function ambilDaftarBarang() {
   return hasil
 }
 
-export async function tambahBarang(tanggalMasuk, namaBarang, jumlahBarang,) {
+export async function tambahBarang(tanggalpemasukan, namakuliner, jumlahstokkuliner,) {
   try {
     const dokRef = await addDoc(collection(db, 'pkl'), {
-      tanggalMasuk: tanggalMasuk,
-      namaBarang: namaBarang,
-      jumlahBarang: jumlahBarang
+      tanggalpemasukan: tanggalpemasukan,
+      namakuliner: namakuliner,
+      jumlahstokkuliner: jumlahstokkuliner
     });
     console.log('berhasil menembah Barang ' + dokRef.id);
   } catch (e) {
@@ -63,11 +64,11 @@ export async function hapusBarang(docId) {
   await deleteDoc(doc(db, "pkl", docId));
 }
 //fungsi untuk ubah data
-export async function ubahBarang(docId, tanggalMasuk, namaBarang, jumlahBarang ) {
+export async function ubahBarang(docId, tanggalpemasukan, namakuliner, jumlahstokkuliner ) {
   await updateDoc(doc(db, "pkl", docId), {
-    tanggalMasuk: tanggalMasuk,
-    namaBarang: namaBarang,
-    jumlahBarang: jumlahBarang,
+    tanggalpemasukan: tanggalpemasukan,
+    namakuliner: namakuliner,
+    jumlahstokkuliner: jumlahstokkuliner,
   });
 }
 //fungsi untuk ambil data dan untuk diubah
