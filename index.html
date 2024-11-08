@@ -49,7 +49,7 @@
 
 
 
-    <table class="table" id="barang">
+    <table class="table" id="pemasukan">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -97,14 +97,14 @@
 
 
     <script type="module">
-      import { ambilDaftarBarang, ubahBarang, hapusBarang } from './main.js';
+      import { ambilDaftarpemasukan, ubahpemasukan, hapuspemasukan } from './main.js';
 
       $(document).ready(async function() {
-        let elemenDaftar = $("#barang > tbody");
-        let daftarBarang = await ambilDaftarBarang();
+        let elemenDaftar = $("#pemasukan > tbody");
+        let daftarpemasukan = await ambilDaftarpemasukan();
         let nomor = 1;
 
-        daftarBarang.forEach((data) => {
+        daftarpemasukan.forEach((data) => {
           elemenDaftar.append(
             '<tr>' +
             '<th>' + nomor + '</th>' +
@@ -124,7 +124,7 @@
         });
 
         $('.tombol-hapus').click(async function() {
-          await hapusBarang($(this).attr('data'));
+          await hapuspemasukan($(this).attr('data'));
           location.reload();
         })
 

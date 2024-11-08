@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarBarang() {
+export async function ambilDaftarpemasukan() {
   const refDokumen = collection(db, "pkl");
   const kueri = query(refDokumen, orderBy("namakuliner"));
   const cuplikanKueri = await getDocs(kueri);
@@ -45,26 +45,26 @@ export async function ambilDaftarBarang() {
   return hasil
 }
 
-export async function tambahBarang(tanggalpemasukan, namakuliner, jumlahstokkuliner,) {
+export async function tambahpemasukan(tanggalpemasukan, namakuliner, jumlahstokkuliner,) {
   try {
     const dokRef = await addDoc(collection(db, 'pkl'), {
       tanggalpemasukan: tanggalpemasukan,
       namakuliner: namakuliner,
       jumlahstokkuliner: jumlahstokkuliner
     });
-    console.log('berhasil menembah Barang ' + dokRef.id);
+    console.log('berhasil menembah pemasukan ' + dokRef.id);
   } catch (e) {
-    console.log('gagal menambah Barang' + e);
+    console.log('gagal menambah pemasukan' + e);
   }
 }
 
 
 //fungsi untuk hapus data
-export async function hapusBarang(docId) {
+export async function hapuspemasukan(docId) {
   await deleteDoc(doc(db, "pkl", docId));
 }
 //fungsi untuk ubah data
-export async function ubahBarang(docId, tanggalpemasukan, namakuliner, jumlahstokkuliner ) {
+export async function ubahpemasukan(docId, tanggalpemasukan, namakuliner, jumlahstokkuliner ) {
   await updateDoc(doc(db, "pkl", docId), {
     tanggalpemasukan: tanggalpemasukan,
     namakuliner: namakuliner,
@@ -72,7 +72,7 @@ export async function ubahBarang(docId, tanggalpemasukan, namakuliner, jumlahsto
   });
 }
 //fungsi untuk ambil data dan untuk diubah
-export async function ambilBarang(docId) {
+export async function ambilpemasukan(docId) {
   const docRef = await doc(db, "pkl", docId);
   const docSnap = await getDoc(docRef);
 
