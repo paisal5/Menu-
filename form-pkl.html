@@ -43,12 +43,12 @@
   <script type="module">
     import { tambahpemasukan } from './main.js';
 
-    let tombolTambah = document.getElementById('tombol-tambah');
+    let tombolTambah = document.getElementById('tombol-pemasukan');
     let elementanggalpemasukan = document.getElementById('input-tanggalpemasukan');
     let elemennamakuliner = document.getElementById('input-namakuliner');
     let elemenjumlahstokkuliner = document.getElementById('input-jumlahstokkuliner');
     
-    tombol-pemasukan.addEventListener('click', async function(e) {
+    tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
       await tambahpemasukan(elementanggalpemasukan.value,elemennamakuliner.value, elemenjumlahstokkuliner.value );
       window.location.href = 'index.html'
