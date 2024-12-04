@@ -40,6 +40,11 @@
       <label class="form-label">jumlah stokkuliner</label>
       <input type="text" class="form-control" id="input-jumlah stokkuliner">
     </div>
+    </div>
+     <div class="mb-3">
+      <label class="form-label">total</label>
+      <input type="text" class="form-control" id="input-total">
+    </div>
     
     <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
   </form>
@@ -51,6 +56,7 @@
     let elementanggalpemasukan = document.getElementById('input-tanggal pemasukan');
     let elemennamakuliner = document.getElementById('input-nama kuliner');
     let elemenjumlahstokkuliner = document.getElementById('input-jumlah stokkuliner');
+    let elemenjumlahstokkuliner = document.getElementById('input-total');
 
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);

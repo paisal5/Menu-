@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -16,21 +16,6 @@
 
 
 <body>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
     <header>
         <img src="gambar.png" alt="Gambar Header" />
     </header>
@@ -55,6 +40,7 @@
           <th scope="col">tanggal pemasukan</th>
           <th scope="col">nama kuliner</th>
           <th scope="col">jumlah stokkuliner</th>
+          <th scope="col">total</th>
         </tr>
       </thead>
       <tbody>
@@ -66,8 +52,24 @@
     </div>
 
     <style>
+    
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px ;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    
       table {
-        width: 100%;
+        width: 100px;
         border-collapse: collapse;
         margin-bottom: 20px;
       }
@@ -110,6 +112,7 @@
             '<td>' + data.tanggalpemasukan + '</td>' +
             '<td>' + data.namakuliner + '</td>' +
             '<td>' + data.jumlahstokkuliner + '</td>' +
+                        '<td>' + data.total + '</td>' +
             '<td class="stack-up">' +
             ' <a href="#" class="btn btn-warning link-ubah"  data="' +
             data.id +

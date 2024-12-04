@@ -35,6 +35,10 @@
     <div class="mb-3">
       <label class="form-label">jumlah stokkuliner</label>
       <input type="text" class="form-control" id="input-jumlahstokkuliner">
+          </div>
+    <div class="mb-3">
+      <label class="form-label">total</label>
+      <input type="text" class="form-control" id="input-total">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-pemasukan">Simpan</button>
     
@@ -47,10 +51,12 @@
     let elementanggalpemasukan = document.getElementById('input-tanggalpemasukan');
     let elemennamakuliner = document.getElementById('input-namakuliner');
     let elemenjumlahstokkuliner = document.getElementById('input-jumlahstokkuliner');
+    let elementotal = document.getElementById('input-total');
+    
     
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahpemasukan(elementanggalpemasukan.value,elemennamakuliner.value, elemenjumlahstokkuliner.value );
+      await tambahpemasukan(elementanggalpemasukan.value,elemennamakuliner.value, elemenjumlahstokkuliner.value,total.value );
       window.location.href = 'index.html'
     })
   </script>
