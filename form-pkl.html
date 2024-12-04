@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>form tambah pemasukan</title>
+  <title>form tanggal order</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -21,20 +21,20 @@
         <li><a class="dropdown-item active" href="index.html">kembali</a></a></li>
     </div>
   
-  <h1>form tambah pemasukan</h1>
+  <h1>form tanggal order</h1>
 
   <form class="mb-3"
     <div class="mb-3">
-      <label class="form-label">tanggal pemasukan</label>
-      <input type="date" class="form-control" id="input-tanggalpemasukan">
+      <label class="form-label">tanggal order</label>
+      <input type="date" class="form-control" id="input-tanggalorder">
     </div>
     <div class="mb-3">
-      <label class="form-label">nama kuliner</label>
-      <input type="text" class="form-control" id="input-namakuliner">
+      <label class="form-label">menu</label>
+      <input type="text" class="form-control" id="input-menu">
     </div>
     <div class="mb-3">
-      <label class="form-label">jumlah stokkuliner</label>
-      <input type="text" class="form-control" id="input-jumlahstokkuliner">
+      <label class="form-label">harga</label>
+      <input type="text" class="form-control" id="input-harga">
           </div>
     <div class="mb-3">
       <label class="form-label">total</label>
@@ -48,15 +48,15 @@
     import { tambahpemasukan } from './main.js';
 
     let tombolTambah = document.getElementById('tombol-pemasukan');
-    let elementanggalpemasukan = document.getElementById('input-tanggalpemasukan');
-    let elemennamakuliner = document.getElementById('input-namakuliner');
-    let elemenjumlahstokkuliner = document.getElementById('input-jumlahstokkuliner');
+    let elementanggalorder = document.getElementById('input-tanggalorder');
+    let elemenmenu = document.getElementById('input-menu');
+    let elemenharga = document.getElementById('input-harga');
     let elementotal = document.getElementById('input-total');
     
     
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahpemasukan(elementanggalpemasukan.value,elemennamakuliner.value, elemenjumlahstokkuliner.value,total.value );
+      await tambahpemasukan(elementanggalorder.value,elemenmenu.value, elemenharga.value,total.value );
       window.location.href = 'index.html'
     })
   </script>

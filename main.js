@@ -35,9 +35,9 @@ export async function ambilDaftarpemasukan() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      tanggalpemasukan: dok.data(). tanggalpemasukan,
-      namakuliner: dok.data(). namakuliner,
-      jumlahstokkuliner: dok.data(). jumlahstokkuliner
+      tanggalorder: dok.data(). tanggalorder,
+      menu: dok.data(). menu,
+      harga: dok.data(). harga,
       total: dok.data().total
     });
   });
@@ -46,12 +46,12 @@ export async function ambilDaftarpemasukan() {
   return hasil
 }
 
-export async function tambahpemasukan(tanggalpemasukan, namakuliner, jumlahstokkuliner, total,) {
+export async function tambahpemasukan(tanggalorder, menu, harga, total,) {
   try {
     const dokRef = await addDoc(collection(db, 'pkl'), {
-      tanggalpemasukan: tanggalpemasukan,
-      namakuliner: namakuliner,
-      jumlahstokkuliner: jumlahstokkuliner,
+      tanggalorder: tanggalorder,
+      menu: menu,
+      harga: harga,
       total: total
     });
     console.log('berhasil menembah pemasukan ' + dokRef.id);
@@ -66,11 +66,11 @@ export async function hapuspemasukan(docId) {
   await deleteDoc(doc(db, "pkl", docId));
 }
 //fungsi untuk ubah data
-export async function ubahpemasukan(docId, tanggalpemasukan, namakuliner, jumlahstokkuliner,total ) {
+export async function ubahpemasukan(docId, tanggalorder, menu, harga,total ) {
   await updateDoc(doc(db, "pkl", docId), {
-    tanggalpemasukan: tanggalpemasukan,
-    namakuliner: namakuliner,
-    jumlahstokkuliner: jumlahstokkuliner,
+    tanggalorder: tanggalorder,
+    menu: menu,
+    harga: harga,
     total: total,
   });
 }
