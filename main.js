@@ -28,7 +28,7 @@ const db = getFirestore(app);
 
 export async function ambilDaftarpemasukan() {
   const refDokumen = collection(db, "pkl");
-  const kueri = query(refDokumen, orderBy("namakuliner"));
+  const kueri = query(refDokumen, orderBy("menu"));
   const cuplikanKueri = await getDocs(kueri);
 
   let hasil = [];
